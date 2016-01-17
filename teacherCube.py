@@ -2,11 +2,12 @@ import RPi.GPIO as GPIO
 import time
 import os
 
-vibration_sensor_pin = 21
-button_pin = 22
-connection_pin = 23
-low_pin = 24
-high_pin = 25
+vibration_sensor_pin = 16
+button_pin = 20
+connection_pin = 21
+
+low_pin = 19
+high_pin = 26
 
 GPIO.setmode(GPIO.BCM)
 
@@ -42,7 +43,7 @@ while 1:
 			os.system("espeak -s 110 'A' 2>/dev/null && echo speaking")
 		
 		button_high_counter = speak_if_pin_high (button_pin, button_high_counter, "-s 110 'A, for Aah'")
-		connection_high_counter = speak_if_pin_high (connection_pin, connection_high_counter, "-s 80 'at'")
+		connection_high_counter = speak_if_pin_high (connection_pin, connection_high_counter, "-s 80 'A, T, at'")
 
 		time.sleep(0.5)
 
